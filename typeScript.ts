@@ -46,3 +46,46 @@ function caesarCipher(str:string, key:number):string {
         }).join('');
 }
 
+// define a function diagonalReverse() that takes matrix and returns diagonal-reversed one:
+
+function diagonalReverse(arr:number[]):number[] {
+    arr.map(val => {
+
+    });
+}
+// Write a function game() number-guessing game, that takes 2 int parameters defining the range.
+// Using some kind of random function to generate random int from the range. 
+// While user input isn't equal that number, print "Try again!". If user guess the number, congratulate him and exit.
+/*
+let param1 = +prompt('Enter min value');
+let param2 = +prompt('Enter max value');
+function game(param1:number, param2:number):void {
+    if (param1 - Math.floor(param1) !== 0 || param2 - Math.floor(param2) !== 0) return;
+    let random = Math.floor(Math.random() * (param2 - param1 + 1) + param1);
+    let userAnswer = +prompt("Enter number");
+    while (random !== userAnswer) {
+        console.log('Try again!')
+        userAnswer = +prompt("Enter number");
+    }
+}
+// game(param1,param2);
+*/
+
+//Define a function, which takes a string with N opening brackets ("[") and N closing brackets ("]"),
+// in some arbitrary order.
+// Determine whether the generated string is balanced; that is,
+// whether it consists entirely of pairs of opening/closing brackets (in that order), none of which mis-nest
+function brackets(str:string):string {
+    let arr = str.split('');
+    if (arr[0] === ']' || arr[arr.length - 1] === '[') return 'NOT OK';
+    while (arr.length > 1 && arr[0] !== ']') {
+        arr.forEach((val, index) => {
+            if (val === '[' && arr.indexOf(']') !== -1) {
+                arr.splice(index, 1);
+                arr.splice(arr.indexOf(']'), 1);
+            }
+        });
+    }
+    return arr.length === 0 ? 'OK' : 'NOT OK';
+ }
+
