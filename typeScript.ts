@@ -77,14 +77,9 @@ function game(param1:number, param2:number):void {
 // whether it consists entirely of pairs of opening/closing brackets (in that order), none of which mis-nest
 function brackets(str:string):string {
     let arr = str.split('');
-    if (arr[0] === ']' || arr[arr.length - 1] === '[') return 'NOT OK';
-    while (arr.length > 1 && arr[0] !== ']' && arr[arr.length - 1] !== '[') {
-        arr.forEach((val, index) => {                       //find pair '[]' and delete it from array
-            if (val === '[' && arr.indexOf(']') !== -1) {
-                arr.splice(index, 1);
+    while (arr.length > 1 && arr[0] !== ']' && arr[arr.length - 1] !== '[') {  //find pair '[]' and delete it from array
+                arr.splice(0, 1);
                 arr.splice(arr.indexOf(']'), 1);
-            }
-        });
     }
     return arr.length === 0 ? 'OK' : 'NOT OK';
  }
