@@ -18,10 +18,24 @@ var Employee = /** @class */ (function () {
     }
     return Employee;
 }());
+var Developer = /** @class */ (function (_super) {
+    __extends(Developer, _super);
+    function Developer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Developer;
+}(Employee));
 var Designer = /** @class */ (function (_super) {
     __extends(Designer, _super);
     function Designer() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     return Designer;
+}(Employee));
+var Manager = /** @class */ (function (_super) {
+    __extends(Manager, _super);
+    function Manager() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Manager;
 }(Employee));

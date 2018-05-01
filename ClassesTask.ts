@@ -13,6 +13,14 @@ class Employee {
     }
 }
 
+class Developer extends Employee {
+    
+}
+
 class Designer extends Employee{
     effectivnessCoefficient:boolean;
+}
+
+class Manager extends Employee {
+
 }
