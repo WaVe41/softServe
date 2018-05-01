@@ -75,3 +75,19 @@ function brackets(str) {
     }
     return arr.length === 0 ? 'OK' : 'NOT OK';
 }
+//Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it.
+// Represent the frequency listing as a Python dictionary.
+// Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
+function charFreq(str) {
+    var result = {};
+    str.toLocaleLowerCase().split('').forEach(function (val) {
+        result[val] ? result[val] += 1 : result[val] = 1;
+    });
+    return result;
+}
+// Write a function decToBin() that taces decimal integer and outputs its binary representation.
+function decToBin(int) {
+    if (Math.floor(int) - int !== 0)
+        return;
+    return int.toString(2);
+}
