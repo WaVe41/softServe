@@ -48,11 +48,21 @@ function caesarCipher(str:string, key:number):string {
 
 // define a function diagonalReverse() that takes matrix and returns diagonal-reversed one:
 
-function diagonalReverse(arr:number[]):number[] {
-    arr.map(val => {
-
+function diagonalReverse(arr:number[][]):number[][] {
+    let result:number[][] = [];
+    arr.forEach((innerArr, i) => {
+        let tempArr: number[] = [];
+        innerArr.forEach((val, j) => {
+            tempArr.push(arr[j][i])
+        });
+        result.push(tempArr);
     });
+    return result
 }
+
+//USAGE
+//console.log(diagonalReverse([[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16]]));
+
 // Write a function game() number-guessing game, that takes 2 int parameters defining the range.
 // Using some kind of random function to generate random int from the range. 
 // While user input isn't equal that number, print "Try again!". If user guess the number, congratulate him and exit.
@@ -76,7 +86,7 @@ function game(param1:number, param2:number):void {
 // Determine whether the generated string is balanced; that is,
 // whether it consists entirely of pairs of opening/closing brackets (in that order), none of which mis-nest
 function brackets(str:string):string {
-    let arr = str.split('');
+    let arr:string[] = str.split('');
     while (arr.length > 1 && arr[0] !== ']' && arr[arr.length - 1] !== '[') {  //find pair '[]' and delete it from array
                 arr.splice(0, 1);
                 arr.splice(arr.indexOf(']'), 1);
@@ -89,7 +99,7 @@ function brackets(str:string):string {
 // Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
 
 function charFreq(str:string):object {
-    let result = {};
+    let result:object = {};
     str.toLocaleLowerCase().split('').forEach(val =>{
        result[val] ? result[val] += 1 : result[val] = 1;
     });
@@ -98,7 +108,21 @@ function charFreq(str:string):object {
 
 // Write a function decToBin() that taces decimal integer and outputs its binary representation.
 
+// USING NATIVE FUNCTION
 function decToBin(int:number):string {
-    if (Math.floor(int) - int !== 0) return;
+    if (Math.floor(int) - int !== 0 && int >= 1) return;
     return int.toString(2);
+}
+
+// WITHOUT NATIVE FUNCTION
+function decBin(int:number):string {
+    if (Math.floor(int) - int !== 0 && int >= 1) return;
+    if (int === 1) return '1';
+    let str:string = '';
+    while (int / 2 >= 1) {
+        str += (int % 2);
+        int = Math.floor(int / 2);
+        if (int === 1) str += 1;
+    }
+    return str.split('').reverse().join('');
 }

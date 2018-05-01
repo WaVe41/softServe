@@ -37,9 +37,18 @@ function caesarCipher(str, key) {
 }
 // define a function diagonalReverse() that takes matrix and returns diagonal-reversed one:
 function diagonalReverse(arr) {
-    arr.map(function (val) {
+    var result = [];
+    arr.forEach(function (innerArr, i) {
+        var tempArr = [];
+        innerArr.forEach(function (val, j) {
+            tempArr.push(arr[j][i]);
+        });
+        result.push(tempArr);
     });
+    return result;
 }
+//USAGE
+//console.log(diagonalReverse([[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16]]));
 // Write a function game() number-guessing game, that takes 2 int parameters defining the range.
 // Using some kind of random function to generate random int from the range. 
 // While user input isn't equal that number, print "Try again!". If user guess the number, congratulate him and exit.
@@ -80,8 +89,24 @@ function charFreq(str) {
     return result;
 }
 // Write a function decToBin() that taces decimal integer and outputs its binary representation.
+// USING NATIVE FUNCTION
 function decToBin(int) {
-    if (Math.floor(int) - int !== 0)
+    if (Math.floor(int) - int !== 0 && int >= 1)
         return;
     return int.toString(2);
+}
+// WITHOUT NATIVE FUNCTION
+function decBin(int) {
+    if (Math.floor(int) - int !== 0 && int >= 1)
+        return;
+    if (int === 1)
+        return '1';
+    var str = '';
+    while (int / 2 >= 1) {
+        str += (int % 2);
+        int = Math.floor(int / 2);
+        if (int === 1)
+            str += 1;
+    }
+    return str.split('').reverse().join('');
 }
