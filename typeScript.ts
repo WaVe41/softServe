@@ -79,15 +79,14 @@ function brackets(str:string):string {
     let arr = str.split('');
     if (arr[0] === ']' || arr[arr.length - 1] === '[') return 'NOT OK';
     while (arr.length > 1 && arr[0] !== ']' && arr[arr.length - 1] !== '[') {
-        arr.forEach((val, index) => {
+        arr.forEach((val, index) => {                       //find pair '[]' and delete it from array
             if (val === '[' && arr.indexOf(']') !== -1) {
                 arr.splice(index, 1);
                 arr.splice(arr.indexOf(']'), 1);
             }
         });
     }
-
     return arr.length === 0 ? 'OK' : 'NOT OK';
  }
 
-console.log(brackets('[][[[[[]]]]]'));
+console.log(brackets('[[]][][['));

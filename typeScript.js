@@ -75,4 +75,3 @@ function brackets(str) {
     }
     return arr.length === 0 ? 'OK' : 'NOT OK';
 }
-console.log(brackets('[][[[[[]]]]]'));
