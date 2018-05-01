@@ -28,11 +28,13 @@ function histogram(arr) {
         console.log("*".repeat(val));
     });
 }
+//USAGE
+//histogram([3,4,5]);
 // Define a function caesarCipher that takes string and key(number), whuch returns encrypted string
 function caesarCipher(str, key) {
     return str.toLocaleLowerCase().split('').map(function (val) {
         return String.fromCharCode((val.charCodeAt(0) + key) > 122 ? val.charCodeAt(0) + key - 26 :
-            val.charCodeAt(0) + key);
+            val.charCodeAt(0) + key); // 122 is 'z' so if charCode more than 122 we need to circle it by subtracting 26
     }).join('');
 }
 // define a function diagonalReverse() that takes matrix and returns diagonal-reversed one:
@@ -64,7 +66,7 @@ function game(param1:number, param2:number):void {
         userAnswer = +prompt("Enter number");
     }
 }
-// game(param1,param2);
+// game(param1, param2);
 */
 //Define a function, which takes a string with N opening brackets ("[") and N closing brackets ("]"),
 // in some arbitrary order.
@@ -78,6 +80,8 @@ function brackets(str) {
     }
     return arr.length === 0 ? 'OK' : 'NOT OK';
 }
+//USAGE
+//console.log(brackets('[[]][]][]]][]'))
 //Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it.
 // Represent the frequency listing as a Python dictionary.
 // Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
@@ -102,7 +106,7 @@ function decBin(int) {
     if (int === 1)
         return '1';
     var str = '';
-    while (int / 2 >= 1) {
+    while (int / 2 >= 1) { //default way using remainder of division to convert from decimal
         str += (int % 2);
         int = Math.floor(int / 2);
         if (int === 1)
@@ -110,3 +114,5 @@ function decBin(int) {
     }
     return str.split('').reverse().join('');
 }
+//USAGE
+//console.log(decBin(123));

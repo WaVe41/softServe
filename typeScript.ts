@@ -37,12 +37,15 @@ function histogram(arr:number[]):void {
     });
 }
 
+//USAGE
+//histogram([3,4,5]);
+
 // Define a function caesarCipher that takes string and key(number), whuch returns encrypted string
 
 function caesarCipher(str:string, key:number):string {
         return str.toLocaleLowerCase().split('').map(val => {
            return String.fromCharCode((val.charCodeAt(0) + key) > 122 ? val.charCodeAt(0) + key - 26 :
-               val.charCodeAt(0) + key);
+               val.charCodeAt(0) + key); // 122 is 'z' so if charCode more than 122 we need to circle it by subtracting 26
         }).join('');
 }
 
@@ -51,7 +54,7 @@ function caesarCipher(str:string, key:number):string {
 function diagonalReverse(arr:number[][]):number[][] {
     let result:number[][] = [];
     arr.forEach((innerArr, i) => {
-        let tempArr: number[] = [];
+        let tempArr:number[] = [];
         innerArr.forEach((val, j) => {
             tempArr.push(arr[j][i])
         });
@@ -78,7 +81,7 @@ function game(param1:number, param2:number):void {
         userAnswer = +prompt("Enter number");
     }
 }
-// game(param1,param2);
+// game(param1, param2);
 */
 
 //Define a function, which takes a string with N opening brackets ("[") and N closing brackets ("]"),
@@ -93,6 +96,8 @@ function brackets(str:string):string {
     }
     return arr.length === 0 ? 'OK' : 'NOT OK';
  }
+ //USAGE
+ //console.log(brackets('[[]][]][]]][]'))
 
 //Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it.
 // Represent the frequency listing as a Python dictionary.
@@ -119,10 +124,12 @@ function decBin(int:number):string {
     if (Math.floor(int) - int !== 0 && int >= 1) return;
     if (int === 1) return '1';
     let str:string = '';
-    while (int / 2 >= 1) {
+    while (int / 2 >= 1) { //default way using remainder of division to convert from decimal
         str += (int % 2);
         int = Math.floor(int / 2);
         if (int === 1) str += 1;
     }
     return str.split('').reverse().join('');
 }
+//USAGE
+//console.log(decBin(123));
