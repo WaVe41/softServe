@@ -9,12 +9,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var Employee = /** @class */ (function () {
-    function Employee(name, secondName, salary, experiance, manager) {
+    function Employee(name, secondName, salary, experiance, manager, qq) {
         this.name = name;
         this.secondName = secondName;
         this.salary = salary;
         this.experiance = experiance;
         this.manager = manager;
+        this.qq = qq;
     }
     return Employee;
 }());
