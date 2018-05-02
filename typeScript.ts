@@ -69,23 +69,22 @@ function diagonalReverse(arr:number[][]):number[][] {
 // Write a function game() number-guessing game, that takes 2 int parameters defining the range.
 // Using some kind of random function to generate random int from the range. 
 // While user input isn't equal that number, print "Try again!". If user guess the number, congratulate him and exit.
-/*
 
 function game(param1:number, param2:number):void {
     if (param1 - Math.floor(param1) !== 0 || param2 - Math.floor(param2) !== 0) return;
     let random = Math.floor(Math.random() * (param2 - param1 + 1) + param1);
     let userAnswer = +prompt("Enter number");
     while (random !== userAnswer) {
-        console.log('Try again!')
+        console.log('Try again!');
         userAnswer = +prompt("Enter number");
     }
     console.log('Gratz!');
 }
 let param1 = +prompt('Enter min value');
 let param2 = +prompt('Enter max value');
-game(param1, param2);
 
-*/
+//USAGE
+//game(param1, param2);
 
 //Define a function, which takes a string with N opening brackets ("[") and N closing brackets ("]"),
 // in some arbitrary order.
