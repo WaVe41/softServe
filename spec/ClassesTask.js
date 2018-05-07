@@ -15,7 +15,9 @@ var Employee = /** @class */ (function () {
         this.experience = experience;
     }
     Employee.prototype.toString = function () {
-        return this.name + " " + this.secondName + ", manager: " + this.manager.name + " " + this.manager.secondName + " , experience: " + this.experience;
+        if (this instanceof Manager)
+            return "Manager " + this.name + " " + this.secondName + ", experience:" + this.experience;
+        return this.name + " " + this.secondName + ", manager: " + this.manager.name + " " + this.manager.secondName + ", experience: " + this.experience;
     };
     return Employee;
 }());
@@ -100,17 +102,23 @@ dep.addManager(man);
 var dev1 = new Developer("Ann", "Air", 10, man);
 var dev2 = new Developer("Tom", "Cruew", 2, man);
 var des1 = new Designer("Liza", "Drow", 7, man, 0.9);
+//let des2: Designer = new Designer('Lara', "Nite", 5, man, 0.8);
 man.addToTeam(dev1);
 man.addToTeam(dev2);
 man.addToTeam(des1);
+//man.addToTeam(des2);
 dev1.giveSalary(500);
 dev2.giveSalary(500);
 des1.giveSalary(400);
+//des2.giveSalary(400);
 man.giveSalary(600);
 dep.giveSalary("Ann", "Air");
 dep.giveSalary("Liza", "Drow");
 dep.giveSalary("Tom", "Cruew");
 dep.giveSalary("Scott", "Siver");
+//dep.giveSalary("Lara", "Nite");
+console.log('' + dev1);
+console.log('' + man);
 //console.log(dev1);
 //console.log(dev2);
 //console.log(des1);
